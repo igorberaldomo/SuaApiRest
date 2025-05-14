@@ -1,19 +1,26 @@
-package main.java.com.example.demo.model;
+package com.example.demo.model;
 
-public class user {
-    private int id;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity(name = "user")
+public class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
     private String name;
     private String email;
     private String password;
     private String penName;
-    private book[] catalogue;
+    private Book[] catalogue;
 
-    
-    public integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -49,14 +56,14 @@ public class user {
         this.penName = penName;
     }
 
-    public book[] getCatalogue() {
+    public Book[] getCatalogue() {
         return catalogue;
     }
 
-    public void setCatalogue(book book) {
-        book[] catalogue = this.catalogue;
+    public void setCatalogue(Book book) {
+        Book[] catalogue = this.catalogue;
         int i = 0;
-        int newArray[] = new book[ catalogue.length + 1];
+        Book newArray[] = new Book[catalogue.length + 1];
         for (i = 0; i < catalogue.length; i++) {
             newArray[i] = catalogue[i];
         }

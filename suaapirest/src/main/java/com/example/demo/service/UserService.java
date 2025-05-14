@@ -1,10 +1,10 @@
-package main.java.com.example.demo.service;
+package com.example.demo.service;
 
-import main.java.com.example.demo.model.user;
-import main.java.com.example.demo.service.imp.UserServiceImpl;
+import com.example.demo.model.User;
+
 public interface UserService {
-    
-    User findByID(int id);
+
+    User findByID(Long id);
 
     User create(User user);
 }

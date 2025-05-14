@@ -1,15 +1,18 @@
-package main.java.com.example.demo.model;
+package com.example.demo.model;
 
-import javax.annotation.processing.Generated;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
 @Entity(name = "book")
-public class book {
+public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int bookId;
 
     private int authorId;
-    
+
     private String name;
     private String description;
     private String author;
@@ -29,6 +32,7 @@ public class book {
     public void setAuthor(String author) {
         this.author = author;
     }
+
     public int getId() {
         return bookId;
     }
@@ -44,5 +48,5 @@ public class book {
     public String getAuthor() {
         return author;
     }
-    
+
 }

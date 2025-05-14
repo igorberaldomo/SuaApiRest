@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class SuaApiRestApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SuaapirestApplication.class, args);
+		SpringApplication.run(SuaApiRestApplication.class, args);
 	}
 
 }

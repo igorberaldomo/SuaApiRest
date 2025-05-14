@@ -1,30 +1,31 @@
-package main.java.com.example.demo.imp.service;
+package com.example.demo.service.imp;
 
-import main.java.com.example.demo.model.user;
-import main.java.com.example.demo.service.UserService;
-import main.java.com.example.demo.model.book;
+
+import com.example.demo.model.User;
+import com.example.demo.service.UserService;
 import java.util.NoSuchElementException;
 import org.springframework.stereotype.Service;
+import com.example.demo.repository.UserRepository;
 
 @Service
-public class UserServiceImpl implements userService{
-    private final UserRepositery userRepositery;
+public class UserServiceImpl implements UserService {
+    private final UserRepository userRepository;
 
-    public UserServiceImplo(UserRepositery userRepositery) {
-        this.userRepositery = userRepositery;
+    public UserServiceImpl(UserRepository userRepository) {
+        this.userRepository = userRepository;
     }
 
     @Override
-    public user findByID(int id) {
-        return userRepositery.findById(id).orElseThrow(NoSuchElementException::new);
+    public User findByID(Long id) {
+        return userRepository.findById(id).orElseThrow(NoSuchElementException::new);
     }
 
     @Override
-    public user create(user UserToCreate) {
-        if (UserToCreate.getId() != null && userRepositery.existsById(UserToCreate.getId())) {
+    public User create(User userToCreate) {
+        if (userToCreate.getId() != null && userRepository.existsById(userToCreate.getId())) {
             throw new IllegalArgumentException("this user already exists");
         }
-        return userRepositery.save(user);
+        return userRepository.save(userToCreate);
     }
-    
+
 }
