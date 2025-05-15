@@ -1,7 +1,9 @@
 package com.example.demo.controller;
 
 import com.example.demo.service.UserService;
+import com.example.demo.service.BookService;
 import com.example.demo.model.User;
+import com.example.demo.model.Book;
 
 import java.net.URI;
 
@@ -14,14 +16,17 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import org.springframework.web.bind.annotation.RequestBody;
 
+
 @RestController
 @RequestMapping("/users")
 public class userController {
 
     private final UserService userService;
+    private final BookService bookService;
 
-    public userController(UserService userService) {
+    public userController(UserService userService, BookService bookService) {
         this.userService = userService;
+        this.bookService = bookService;
     }
 
     @GetMapping("/{id}")
@@ -38,4 +43,20 @@ public class userController {
                 .buildAndExpand(userCreated.getId()).toUri();
         return ResponseEntity.created(location).body(userCreated);
     }
+
+    @GetMapping("/books/{id}")
+    public String findBookByID(@PathVariable Long id) {
+        var book = bookService.findBookById(id);
+        return ResponseEntity.ok(book).toString();
+    }
+
+    @PostMapping("/books/{id}")
+    public  ResponseEntity<Book> createBook(@RequestBody Book book) {
+        var createdBook = bookService.createBook(book);
+        URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/books/{id}")
+                .buildAndExpand(createdBook.getId()).toUri();
+        return ResponseEntity.created(location).body(createdBook);
+
+    }
+
 }

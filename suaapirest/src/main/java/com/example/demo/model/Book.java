@@ -9,15 +9,16 @@ import jakarta.persistence.Id;
 public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int bookId;
+    private Long bookId;
 
-    // private int authorId;
+
+    private Long authorId;
 
     private String name;
     private String description;
     private String author;
 
-    public void setId(int bookId) {
+    public void setId(Long bookId) {
         this.bookId = bookId;
     }
 
@@ -33,7 +34,11 @@ public class Book {
         this.author = author;
     }
 
-    public int getId() {
+    public void setAuthorId(Long authorId) {
+        this.authorId = authorId;
+    }
+
+    public Long getId() {
         return bookId;
     }
 
@@ -49,4 +54,7 @@ public class Book {
         return author;
     }
 
+    public Long getAuthorId() {
+        return authorId;
+    }
 }
