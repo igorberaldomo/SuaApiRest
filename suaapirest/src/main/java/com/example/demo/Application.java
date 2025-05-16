@@ -10,10 +10,10 @@ import io.swagger.v3.oas.annotations.servers.Server;
     @Server(url = "/", description = "Default Server URL")
 })
 @SpringBootApplication
-public class SuaApiRestApplication {
+public class Application {
 
     public static void main(String[] args) {
-        SpringApplication.run(SuaApiRestApplication.class, args);
+        SpringApplication.run(Application.class, args);
 
     }
 
