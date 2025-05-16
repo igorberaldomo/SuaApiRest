@@ -28,9 +28,9 @@ public class userController {
         this.bookService = bookService;
     }
 
-    @GetMapping("/")
-    public String findAll() {
-        return "findAll";
+    @GetMapping("/test")
+    public String test() {
+        return "api is working";
     }
 
     @GetMapping("/{id}")
