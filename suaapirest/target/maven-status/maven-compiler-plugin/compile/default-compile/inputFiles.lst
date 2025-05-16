@@ -1,0 +1,10 @@
+/home/antonio/Downloads/SuaApiRest-main/suaapirest/src/main/java/com/example/demo/SuaApiRestApplication.java
+/home/antonio/Downloads/SuaApiRest-main/suaapirest/src/main/java/com/example/demo/controller/userController.java
+/home/antonio/Downloads/SuaApiRest-main/suaapirest/src/main/java/com/example/demo/model/Book.java
+/home/antonio/Downloads/SuaApiRest-main/suaapirest/src/main/java/com/example/demo/model/User.java
+/home/antonio/Downloads/SuaApiRest-main/suaapirest/src/main/java/com/example/demo/repository/BookRepository.java
+/home/antonio/Downloads/SuaApiRest-main/suaapirest/src/main/java/com/example/demo/repository/UserRepository.java
+/home/antonio/Downloads/SuaApiRest-main/suaapirest/src/main/java/com/example/demo/service/BookService.java
+/home/antonio/Downloads/SuaApiRest-main/suaapirest/src/main/java/com/example/demo/service/UserService.java
+/home/antonio/Downloads/SuaApiRest-main/suaapirest/src/main/java/com/example/demo/service/imp/BookServiceImpl.java
+/home/antonio/Downloads/SuaApiRest-main/suaapirest/src/main/java/com/example/demo/service/imp/UserServiceImpl.java

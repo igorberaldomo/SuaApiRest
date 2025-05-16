@@ -1,0 +1,10 @@
+com/example/demo/repository/UserRepository.class
+com/example/demo/controller/userController.class
+com/example/demo/service/imp/BookServiceImpl.class
+com/example/demo/repository/BookRepository.class
+com/example/demo/service/imp/UserServiceImpl.class
+com/example/demo/SuaApiRestApplication.class
+com/example/demo/model/Book.class
+com/example/demo/model/User.class
+com/example/demo/service/BookService.class
+com/example/demo/service/UserService.class

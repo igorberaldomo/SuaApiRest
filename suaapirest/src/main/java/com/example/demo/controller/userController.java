@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import org.springframework.web.bind.annotation.RequestBody;
 
-
 @RestController
 @RequestMapping("/users")
 public class userController {
@@ -27,6 +26,11 @@ public class userController {
     public userController(UserService userService, BookService bookService) {
         this.userService = userService;
         this.bookService = bookService;
+    }
+
+    @GetMapping("/")
+    public String findAll() {
+        return "findAll";
     }
 
     @GetMapping("/{id}")
@@ -51,7 +55,7 @@ public class userController {
     }
 
     @PostMapping("/books/{id}")
-    public  ResponseEntity<Book> createBook(@RequestBody Book book) {
+    public ResponseEntity<Book> createBook(@RequestBody Book book) {
         var createdBook = bookService.createBook(book);
         URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/books/{id}")
                 .buildAndExpand(createdBook.getId()).toUri();

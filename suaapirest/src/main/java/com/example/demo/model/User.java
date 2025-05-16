@@ -1,11 +1,15 @@
 package com.example.demo.model;
 
+import java.util.Set;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
-@Entity(name = "user")
+@Entity(name = "tb_user")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -14,7 +18,8 @@ public class User {
     private String email;
     private String password;
     private String penName;
-    private Book[] catalogue;
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<Book> catalogue;
 
     public Long getId() {
         return id;
@@ -56,18 +61,11 @@ public class User {
         this.penName = penName;
     }
 
-    public Book[] getCatalogue() {
+    public Set<Book> getCatalogue() {
         return catalogue;
     }
 
-    public void setCatalogue(Book book) {
-        Book[] catalogue = this.catalogue;
-        int i = 0;
-        Book newArray[] = new Book[catalogue.length + 1];
-        for (i = 0; i < catalogue.length; i++) {
-            newArray[i] = catalogue[i];
-        }
-        newArray[catalogue.length] = book;
-        this.catalogue = newArray;
+    public void setCatalogue(Set<Book> catalogue) {
+        this.catalogue = catalogue;
     }
 }
