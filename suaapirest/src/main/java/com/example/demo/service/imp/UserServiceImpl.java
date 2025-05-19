@@ -28,4 +28,21 @@ public class UserServiceImpl implements UserService {
         return userRepository.save(userToCreate);
     }
 
+    @Override
+    public User UpdateUser(User userToUpdate) {
+        if (userToUpdate.getId() != null && userRepository.existsById(userToUpdate.getId())) {
+            return userRepository.save(userToUpdate);
+        }
+        else{
+            throw new IllegalArgumentException("this user does not exist");
+        }
+    }
+
+    @Override
+    public User DeleteUser(Long id) {
+        var user = userRepository.findById(id).orElseThrow(NoSuchElementException::new);
+        userRepository.delete(user);
+        return user;
+    }
+
 }

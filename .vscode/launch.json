@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Application",
+            "request": "launch",
+            "mainClass": "com.example.demo.Application",
+            "projectName": "demo"
+        },
+        {
+            "type": "java",
             "name": "Spring Boot-SuaApiRestApplication<demo>",
             "request": "launch",
             "cwd": "${workspaceFolder}",

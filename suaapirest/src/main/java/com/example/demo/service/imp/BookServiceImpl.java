@@ -29,6 +29,22 @@ public class BookServiceImpl implements BookService {
         return bookRepository.save(bookToCreate);
     }
 
+    @Override
+    public Book updateBook(Book bookToUpdate) {
+        if (bookToUpdate.getId() != null && bookRepository.existsById(bookToUpdate.getId())) {
+            return bookRepository.save(bookToUpdate);
+        }
+        else{
+            throw new IllegalArgumentException("this Book does not exist");
+        }
+    }
+
+    @Override
+    public Book deleteBook(Long id) {
+        var book = bookRepository.findById(id).orElseThrow(NoSuchElementException::new);
+        bookRepository.delete(book);
+        return book;
+    }
 
     
 }

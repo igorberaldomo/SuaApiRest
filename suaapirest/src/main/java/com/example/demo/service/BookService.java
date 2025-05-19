@@ -6,5 +6,9 @@ public interface BookService {
     Book findBookById(Long id) ;
 
     Book createBook(Book book) ;
+
+    Book updateBook(Book book) ;
+
+    Book deleteBook(Long id) ;
     
 }
